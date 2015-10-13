@@ -7,7 +7,7 @@ server <%= @server %>
 <% else -%>
 mode server <%= @server %>
 ifconfig-pool <%= @ifconfig_pool %>
-<% end %>
+<% end -%>
 client-config-dir /etc/openvpn/<%= @name %>/client-configs
 <% else -%>
 client
