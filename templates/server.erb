@@ -1,5 +1,13 @@
 <% unless @remote -%>
+<% unless @ifconfig_pool -%>
 mode server
+<% if @server != '' -%>
+server <%= @server %>
+<% end -%>
+<% else -%>
+mode server <%= @server %>
+ifconfig-pool <%= @ifconfig_pool %>
+<% end %>
 client-config-dir /etc/openvpn/<%= @name %>/client-configs
 <% else -%>
 client
@@ -56,9 +64,6 @@ local <%= @local %>
 <% end -%>
 <% if @ipp -%>
 ifconfig-pool-persist <%= @name %>/vpn-ipp.txt
-<% end -%>
-<% if @server != '' -%>
-server <%= @server %>
 <% end -%>
 <% if @server_ipv6 != '' -%>
 server-ipv6 <%= @server_ipv6 %>

@@ -103,6 +103,11 @@
 #   Array.  Options to push out to the client.  This can include routes, DNS
 #     servers, DNS search domains, and many other options.
 #   Default: []
+# 
+# [*ifconfig_pool*]
+#   String. Option to define pool of ip addresses to provide to clients. You must provide
+#   the server parameter for now
+#   Default: ''
 #
 # [*route*]
 #   Array.  Add route to routing table after connection is established.
@@ -382,6 +387,7 @@ define openvpn::server(
   $server                    = '',
   $server_ipv6               = '',
   $server_bridge             = '',
+  $ifconfig_pool             = '',
   $push                      = [],
   $route                     = [],
   $route_ipv6                = [],
